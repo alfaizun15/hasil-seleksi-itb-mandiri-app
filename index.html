@@ -241,23 +241,22 @@ gtag("config", "GT-KV5H4KH2");
   <style>
     .info-row {
       display: grid;
-      grid-template-columns: 300px 10px 1fr;
-      gap: 4px;
+      grid-template-columns: minmax(180px, 300px) 10px 1fr;
+      column-gap: 6px;
+      row-gap: 6px;
       align-items: start;
-    }
-
-    @media (max-width: 480px) {
-      .info-row {
-        grid-template-columns: 240px 10px 1fr;
-      }
     }
 
     .info-label {
       font-weight: 500;
       color: #4b5563;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal; /* ✅ fix biar teks panjang boleh turun baris */
+    }
+
+    @media (max-width: 480px) {
+      .info-row {
+        grid-template-columns: minmax(140px, 1fr) 8px 1fr;
+      }
     }
   </style>
 </head>
@@ -317,7 +316,7 @@ gtag("config", "GT-KV5H4KH2");
     </div>
   </section>
 
-  <!-- Tombol Pendaftaran -->
+  <!-- Tombol -->
   <div class="text-center mt-6 max-w-3xl mx-auto">
     <a href="https://pendaftaran-ulang.vercel.app/" target="_blank"
        class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded transition duration-200">
